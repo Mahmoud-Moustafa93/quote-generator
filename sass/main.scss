@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+// 2. Vendors
+@import "vendors/normalize";
+
+// 3. Base stuff
+@import "base/animations";
+@import "base/base";
+
+// 4. Components
+@import "components/loader";
+
+/* ===================== Main Styling ===================== */
+body {
+  background-image: $back-image;
+}
+
+.quote {
+  &-container {
+    width: auto;
+    max-width: 90rem;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    background-color: rgba($color-white, 0.4);
+    box-shadow: 0 1rem 1rem 1rem rgba($color-black, 0.2);
+
+    @include respondMax($tab-land) {
+      margin: 1.5rem;
+    }
+  }
+
+  &-text {
+    font-size: $quote-fs;
+    font-weight: 700;
+
+    &--long {
+      font-size: $long-quote-fs;
+    }
+
+    @include respondMax($tab-land) {
+      font-size: calc($long-quote-fs * 0.9375);
+    }
+  }
+
+  &-icon {
+    font-size: $icon-fs;
+  }
+
+  &-author {
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    font-style: italic;
+  }
+}
+
+.button {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border: none;
+  outline: none;
+  color: $color-white;
+  background-color: $color-text;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem rgba($color-grey-dark, 0.65);
+
+  &:hover {
+    filter: brightness(110%);
+  }
+
+  &:active {
+    transform: translateY(0.3rem);
+    box-shadow: initial;
+  }
+
+  &-container {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-twitter {
+    &:hover {
+      color: #38a1f3;
+    }
+
+    .twitter-icon {
+      font-size: 2.4rem;
+    }
+  }
+}
